@@ -1,4 +1,4 @@
-var now = clock()
+
 function setup() {
   // set the width & height of the sketch
   createCanvas(300, 300)
@@ -10,44 +10,54 @@ function setup() {
 }
 
 function draw() {
+  var now = clock()
   background(230);
+  angleMode(DEGREES);
   //second
-  let m=map(now.progress.min, 0,1,0,255);
-  fill(m,100,100);
+  var a=color(243,136,75);
+  var b=color(156,83,229);
+  let secondColor=lerpColor(a,b,now.progress.min);
+  fill(secondColor);
   noStroke();
   rect(0,0,300,300);
-  //minute
-  strokeWeight(2);
-  stroke(255);
-  line(0,150,300,150);
-  strokeWeight(0);
-  angleMode(DEGREES);
-  let x1=map(now.min,0,60,0,width);
-  let y1= map(now.min,0,60,0,360);
-  fill(160);
-  ellipse(x1,cos(y1)*50+150,10,10);
+  //curve
+  for(x=0;x<301;x++){
+    let y3= map(x,0,300,0,360);
+    fill(158,239,56);
+    ellipse(x,cos(y3)*50+150,1,1);
+    let y4= map(x,0,300,180,540);
+    fill(56,118,239);
+    ellipse(x,cos(y4)*50+150,1,1);
+  }
   //hour
-  strokeWeight(2);
-  stroke(255);
-  line(150,0,150,300);
+  line(0,150,300,150);
+  //hour circle
   strokeWeight(0);
-  let y2=map(now.hours,0,24,0,height);
-  let x2= map(now.hours,0,24,90,450);
-  fill(180,236,100);
-  ellipse(cos(x2)*50+150,y2,10,10);
+  let x1=map(now.hours,0,24,0,width);
+  let y1= map(now.hours,0,24,0,360);
+  fill(158,239,56);
+  ellipse(x1,cos(y1)*50+150,10,10);
+  //minute
+  line(150,0,150,300);
+  //minute circle
+  strokeWeight(0);
+  let x2=map(now.min,0,60,0,width);
+  let y2= map(now.min,0,60,180,540);
+  fill(56,118,239);
+  ellipse(x2,cos(y2)*50+150,10,10);
   // check the clock for the current time and unpack some of its fields to generate a time-string
 
   // set the background to 'white' – you can also specify colors use integers, hex-color strings and more.
   // note that setting the background also clears the canvas from our previous round of drawing
 
   // set up typography & drawing-color
-  noStroke();
+  /*noStroke();
   textFont("Anonymous Pro") // ← check index.html to see how it was loaded from google-fonts
   textSize(42) // make it big
   fill(100, 50, 50)
 
   // draw the time string to the canvas
   text(now.text.date, 30, 50)
-  text(now.text.time, 30, 100)
+  text(now.text.time, 30, 100)*/
 
 }
