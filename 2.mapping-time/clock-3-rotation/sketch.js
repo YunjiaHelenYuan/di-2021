@@ -1,5 +1,3 @@
-var now = clock()
-
 function setup() {
     // set the width & height of the sketch
   createCanvas(400, 600)
@@ -11,6 +9,7 @@ function setup() {
 
 function draw() {
   angleMode(DEGREES);
+  var now = clock()
 
   // set the background to 'white' – you can also specify colors use integers, hex-color strings and more.
   // note that setting the background also clears the canvas from our previous round of drawing

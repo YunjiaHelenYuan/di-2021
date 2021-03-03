@@ -1,11 +1,3 @@
-var now = clock()
-
-var x=50;
-var y=130;
-var r=20;
-var spacing=30;
-var monthLength=7;
-
 function setup() {
   // set the width & height of the sketch
   createCanvas(400, 400)
@@ -18,7 +10,7 @@ function setup() {
 
 function draw() {
   // check the clock for the current time and unpack some of its fields to generate a time-string
-
+  var now = clock();
   // set the background to 'white' – you can also specify colors use integers, hex-color strings and more.
   // note that setting the background also clears the canvas from our previous round of drawing
   background(230)
@@ -31,6 +23,11 @@ function draw() {
   // draw the time string to the canvas
   text(now.text.date, 30, 50)
   text(now.text.time, 30, 100)
+  var x=50;
+  var y=130;
+  var r=20;
+  var spacing=30;
+  var monthLength=7;
 
   let jan=color(38,45,76);
   let feb=color(123,168,198);
@@ -45,12 +42,9 @@ function draw() {
   let nov=color(160,186,54);
   let dec=color(57,91,60);
 
-  let colorArray=[jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec];
-  let decToJan=lerpColor(colorArray[11],
-                              colorArray[0],now.progress.month)
+  let colorArray=[jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec,jan];
   let monthFillColor=lerpColor(colorArray[now.month-1],
                               colorArray[now.month],now.progress.month)
-//find a way to get around the color with Jan/Dec
     for (a=0;a<8;a++){
       for(b=0;b<6;b++){
         /*if(a+b*monthLength<31){
@@ -60,16 +54,17 @@ function draw() {
             rect(x+a*spacing,y+b*spacing,r,r);
           }*/
         if(a+b*monthLength<now.day){
-          if(now.month<12){
+          // if(now.month==12){
+          //   let decToJan=lerpColor(colorArray[11],
+          //                               colorArray[0],now.progress.month)
+          //   stroke(decToJan);
+          //   fill(decToJan);
+          //   rect(x+a*spacing,y+b*spacing,r,r);}
+          // else if(now.month<12){
           stroke(monthFillColor);
           fill(monthFillColor);
           rect(x+a*spacing,y+b*spacing,r,r);
-          }
-          else if(now.month=12){
-            stroke(decToJan);
-            fill(decToJan);
-            rect(x+a*spacing,y+b*spacing,r,r);
-          }
+          //}
         }
       }
     }

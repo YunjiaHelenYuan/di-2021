@@ -1,4 +1,3 @@
-
 function setup() {
   // set the width & height of the sketch
   createCanvas(300, 300)
@@ -30,7 +29,7 @@ function draw() {
     ellipse(x,cos(y4)*50+150,1,1);
   }
   //hour
-  line(0,150,300,150);
+  //line(0,150,300,150);
   //hour circle
   strokeWeight(0);
   let x1=map(now.hours,0,24,0,width);

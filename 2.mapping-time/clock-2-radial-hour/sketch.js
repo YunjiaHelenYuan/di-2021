@@ -1,6 +1,3 @@
-  var now=clock();
-  var spacing=8;
-
   function setup() {
   // set the width & height of the sketch
   createCanvas(500, 500)
@@ -17,6 +14,7 @@
 }
 
 function draw() {
+    var now=clock();
   angleMode(DEGREES);
   noStroke();
   //second
@@ -24,15 +22,48 @@ function draw() {
   // numbers.forEach(i=>{
   //   circle(random(0,400),random(0,400),20);
   // })
-  fill(120,140,209);
-  for (i=0;i<now.sec;i++){
-    if(i%2==0){
-    circle(10,15+spacing*i,5);
+  var secCircle=[];
+  var spacing=31;
+  fill(130,150,209);
+  for (i=0;i<60;i++){
+    if(i<15){
+      circle(15,15+spacing*i,5);
     }
-    else{
-      circle(15+spacing*i,10,5);
+    else if(i<30){
+      circle(15+spacing*(i-15),485,5);
+    }
+    else if(i<45){
+      circle(485,485-spacing*(i-30),5);
+    }
+    else if(i<59){
+      circle(485-spacing*(i-45),15,5);
     }
   }
+  //bigger darker circle every sec
+  fill(51,61,149);
+  for (i=0;i<now.sec;i++){
+    if(i<15){
+      circle(15,15+spacing*i,5);
+    }
+    else if(i<30){
+      circle(15+spacing*(i-15),485,5);
+    }
+    else if(i<45){
+      circle(485,485-spacing*(i-30),5);
+    }
+    else if(i<60){
+      circle(485-spacing*(i-45),15,5);
+    }
+  }
+  //fill(120,140,209);
+  // for (i=0;i<now.sec;i++){
+  //   if(i%2==0){
+  //   circle(10,15+spacing*i,5);
+  //   }
+  //   else{
+  //     circle(15+spacing*i,10,5);
+  //   }
+  // }
   //minute
   fill(211,125,94);
   var y2 = map(now.min, 0,60,-90,270);

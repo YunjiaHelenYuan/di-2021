@@ -29,41 +29,66 @@ function draw() {
   var seasonWidth=10;
   var seasonHeight=80;
   var spacing=40;
-  var a=color(190,130,200);
-  var b=color(187,96,121);
-  var c=color(198,28,192);
-  var d=color(230,30,198);
+  var a=color(190,195,249);
+  var b=color(80,143,90);
+  var c=color(255,220,34);
+  var d=color(57,65,13);
+  var springColor=lerpColor(a,b,now.progress.season);
+  var summerColor=lerpColor(b,c,now.progress.season);
+  var fallColor=lerpColor(c,d,now.progress.season);
+  var winterColor=lerpColor(d,a,now.progress.season);
 
-  for (i=0;i<now.season+1;i++){
-    if(i<2){
-      fill(a)
+  // for (i=0;i<now.season+1;i++){
+  //   if(i<2){
+  //     fill(a)
+  //     rect(width/2-10/2,y,seasonWidth,seasonHeight);
+  //   }
+  //   else if(i<3){
+  //     fill(a)
+  //     rect(width/2-10/2,y,seasonWidth,seasonHeight);
+  //     fill(b)
+  //     rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
+  //   }
+  //   else if(i<4){
+  //     fill(a)
+  //     rect(width/2-10/2,y,seasonWidth,seasonHeight);
+  //     fill(b)
+  //     rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
+  //     fill(c)
+  //     rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
+  //   }
+  //   else if(i<5){
+  //}}
+  for (i=0;i<now.season;i++){
+    if(i<1){
+      fill(springColor)
       rect(width/2-10/2,y,seasonWidth,seasonHeight);
+      rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
+      rect(x,height/2-10/2,seasonHeight,seasonWidth);
+      rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
+    }
+    else if(i<2){
+      fill(summerColor)
+      rect(width/2-10/2,y,seasonWidth,seasonHeight);
+      rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
+      rect(x,height/2-10/2,seasonHeight,seasonWidth);
+      rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
     }
     else if(i<3){
-      fill(a)
+      fill(fallColor)
       rect(width/2-10/2,y,seasonWidth,seasonHeight);
-      fill(b)
+      rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
+      rect(x,height/2-10/2,seasonHeight,seasonWidth);
       rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
     }
     else if(i<4){
-      fill(a)
+      fill(winterColor)
       rect(width/2-10/2,y,seasonWidth,seasonHeight);
-      fill(b)
       rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
-      fill(c)
-      rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
-    }
-    else if(i<5){
-      fill(a)
-      rect(width/2-10/2,y,seasonWidth,seasonHeight);
-      fill(b)
-      rect(width/2-10/2,y+seasonHeight+spacing,seasonWidth,seasonHeight);
-      fill(d)
       rect(x,height/2-10/2,seasonHeight,seasonWidth);
-      fill(c)
       rect(x+seasonHeight+spacing,height/2-10/2,seasonHeight,seasonWidth);
     }
-  }
+      }
   // set up typography & drawing-color
   textFont("Anonymous Pro") // ← check index.html to see how it was loaded from google-fonts
   textSize(42) // make it big
