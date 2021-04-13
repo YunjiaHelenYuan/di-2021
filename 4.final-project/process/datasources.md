@@ -7,27 +7,27 @@ For example, the USGS's feeds of seismic events could be summarized as:
 - Format: multiple CSV files with different time/magnitude windows
 - URL: https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php
 
-Description:
+Description:Stories about space launches
 Provider:
-Format:
-URL:
+Format:Interactive webpages
+URL:https://www.supercluster.com/?sort=launch%20order&ascending=true&life%20form=human&nation=USA&
 
-Description:
+Description:vogue archive 1980-current vogue issues
 Provider:
-Format:
-URL:
+Format:web database, issue based
+URL:https://archive.vogue.com/
 
-Description:
+Description: vanity fair archive
 Provider:
-Format:
-URL:
+Format:web database
+URL:https://archive.vanityfair.com/
 
-Description:
+Description:Sky & Telescope magazine's online gallery
 Provider:
 Format:
-URL:
+URL:https://skyandtelescope.org/communities/online-gallery/meteor-comet-asteroid-pictures/?category=meteor-comet-asteroid-pictures
 
-Description:
+Description: NASA image of the day gallery
 Provider:
 Format:
-URL:
+URL:https://www.nasa.gov/multimedia/imagegallery/iotd.html
